@@ -10,12 +10,32 @@ type Book struct {
     Price       float64	`json:"price"`
 }
 
-var book = Book{
-    Title:       "The Catcher in the Rye",
-    Author:      "J.D. Salinger",
-    Publisher:   "Little, Brown and Company",
-    PublishYear: 1951,
-    ISBN:        "0316769177",
-    Pages:       277,
-    Price:       13.99,
+var books = []Book{
+	{
+		Title:       "The Catcher in the Rye",
+		Author:      "J.D. Salinger",
+		Publisher:   "Little, Brown and Company",
+		PublishYear: 1951,
+		ISBN:        "0316769177",
+		Pages:       277,
+		Price:       13.99,
+	},
+	{
+		Title:       "To Kill a Mockingbird",
+		Author:      "Harper Lee",
+		Publisher:   "J. B. Lippincott & Co.",
+		PublishYear: 1960,
+		ISBN:        "0-06-112008-1",
+		Pages:       281,
+		Price:       12.99,
+	},
+	{
+		Title:       "1984",
+		Author:      "George Orwell",
+		Publisher:   "Secker & Warburg",
+		PublishYear: 1949,
+		ISBN:        "978-0-14-118776-1",
+		Pages:       328,
+		Price:       8.99,
+	},
 }
