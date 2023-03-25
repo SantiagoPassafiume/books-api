@@ -63,3 +63,10 @@ func addBook(context *gin.Context){
 	context.IndentedJSON(http.StatusCreated, newBook)
 	
 }	
+
+func main(){
+	router := gin.Default()
+	router.GET("/books", getBooks)
+	router.POST("/books", addBook)
+	router.Run("localhost:9090")
+}
