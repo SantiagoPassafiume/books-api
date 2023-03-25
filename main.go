@@ -50,3 +50,16 @@ func getBooks(context *gin.Context){
 	context.IndentedJSON(http.StatusOK, books)
 
 }
+
+func addBook(context *gin.Context){
+	var newBook Book
+
+	if err := context.BindJSON(&newBook); err != nil {
+		return
+	}
+
+	books = append(books, newBook)
+
+	context.IndentedJSON(http.StatusCreated, newBook)
+	
+}	
