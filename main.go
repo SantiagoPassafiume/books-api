@@ -1,5 +1,11 @@
 package main
 
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
 type Book struct {
     Title       string	`json:"title"`
     Author      string	`json:"author"`
@@ -38,4 +44,9 @@ var books = []Book{
 		Pages:       328,
 		Price:       8.99,
 	},
+}
+
+func getBooks(context *gin.Context){
+	context.IndentedJSON(http.StatusOK, books)
+
 }
