@@ -7,17 +7,19 @@ import (
 )
 
 type Book struct {
+	ID			string  `json:"id"`
     Title       string	`json:"title"`
     Author      string	`json:"author"`
     Publisher   string	`json:"publisher"`
-    PublishYear int	`json:"publishYear"`
+    PublishYear int		`json:"publishYear"`
     ISBN        string	`json:"isbn"`
-    Pages       int	`json:"pages"`
+    Pages       int		`json:"pages"`
     Price       float64	`json:"price"`
 }
 
 var books = []Book{
 	{
+		ID: 		 "1",
 		Title:       "The Catcher in the Rye",
 		Author:      "J.D. Salinger",
 		Publisher:   "Little, Brown and Company",
@@ -27,6 +29,7 @@ var books = []Book{
 		Price:       13.99,
 	},
 	{
+		ID:			 "2",
 		Title:       "To Kill a Mockingbird",
 		Author:      "Harper Lee",
 		Publisher:   "J. B. Lippincott & Co.",
@@ -36,6 +39,7 @@ var books = []Book{
 		Price:       12.99,
 	},
 	{
+		ID:			 "3",
 		Title:       "1984",
 		Author:      "George Orwell",
 		Publisher:   "Secker & Warburg",
