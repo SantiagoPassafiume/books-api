@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -68,9 +69,33 @@ func addBook(context *gin.Context){
 	
 }	
 
+func getBookById(id string) (*Book, error) {
+	for i, t := range books {
+		if t.ID == id {
+			return &books[i], nil
+		}
+	}
+	return nil, errors.New("Book not found")
+
+}
+
+func getBook(context *gin.Context) {
+	id := context.Param("id")
+	book, err := getBookById(id)
+
+	if err != nil {
+		context.IndentedJSON(http.StatusNotFound, gin.H{"message": "Book not found"})
+		return
+	}
+
+	context.IndentedJSON(http.StatusOK, book)
+
+}
+
 func main(){
 	router := gin.Default()
 	router.GET("/books", getBooks)
+	router.GET("/books/:id", getBook)
 	router.POST("/books", addBook)
 	router.Run("localhost:9090")
 }
